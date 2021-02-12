@@ -60,7 +60,7 @@ jobs:
       - name: Deploy to production
         if: github.event_name == 'push'  && github.ref == 'refs/heads/main'
         run: npx surge --project ./build --domain burly-tank.surge.sh
-      - name: Deploy to production
+      - name: Upload to codecov
         if: github.event_name == 'push'  && github.ref == 'refs/heads/main'
         run: npx codecov
         env:
