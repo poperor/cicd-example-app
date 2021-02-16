@@ -7,9 +7,9 @@ try {
 
     console.log(`Hallo ${name}`);
     const time = new Date();
-    core.setOutput("time", time.toLocaleTimeString())
+    core.setOutput("time", time.toTimeString())
 
     console.log(json.stringify(github, null, '\t'));
 } catch (error) {
-    core.setFailed("faila altså")
+    core.setFailed("faila altså", error)
 }
