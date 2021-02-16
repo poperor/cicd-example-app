@@ -1,0 +1,17 @@
+name: hello
+
+author: poperor
+
+description: Saying hello
+
+inputs:
+  who-to-greet:
+    description: "action for saying hello"
+    required: true
+    default: poperor
+outputs:
+  time:
+    description: "The greeting time"
+runs:
+  using: "node12"
+  main: "inde.js"

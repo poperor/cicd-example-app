@@ -2,9 +2,9 @@ name: CI
 
 on:
   pull_request:
-    branches: [develop]
+    branches: [developx]
   push:
-    branches: [develop, main]
+    branches: [developx, mainx]
 
 jobs:
   build:
