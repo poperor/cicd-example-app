@@ -18,6 +18,7 @@ jobs:
         run: |
           echo "Cache before cache action:"
           ls -a
+          pwd
       - name: Cache node_modules
         uses: actions/cache@v1
         with:
@@ -28,6 +29,7 @@ jobs:
       - name: Check cache after cache action
         run: |
           ls -a
+          pwd
       - name: Use Nodejs
         uses: actions/setup-node@v1
         with:
