@@ -17,7 +17,7 @@ jobs:
       - name: Check cache before cache action
         run: |
           echo "Cache before cache action:"
-          '[ -d ~/.npm ] && echo "~/.npm exist before checkout action"'
+          ls -a
       - name: Cache node_modules
         uses: actions/cache@v1
         with:
@@ -27,8 +27,7 @@ jobs:
             ${{ runner.os }}-node-
       - name: Check cache after cache action
         run: |
-          echo "Cache after cache action:"
-          '[ -d ~/.npm ]  && du -hs ~/.npm'
+          ls -a
       - name: Use Nodejs
         uses: actions/setup-node@v1
         with:
