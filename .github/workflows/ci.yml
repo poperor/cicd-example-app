@@ -4,7 +4,7 @@ on:
   pull_request:
     branches: [developx]
   push:
-    branches: [developx, mainx]
+    branches: [develop, main]
 
 jobs:
   build:
@@ -14,6 +14,11 @@ jobs:
       SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
     steps:
       - uses: actions/checkout@v2
+      - name: Check cache before cache action
+        run: |
+          echo "Cache before cache action:"
+          ls -la ~/.npm
+          du -hs ~/.npm
       - name: Cache node_modules
         uses: actions/cache@v1
         with:
@@ -21,6 +26,11 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json')}}
           restore-keys: |
             ${{ runner.os }}-node-
+      - name: Check cache after cache action
+        run: |
+          echo "Cache after cache action:"
+          ls -la ~/.npm
+          du -hs ~/.npm
       - name: Use Nodejs
         uses: actions/setup-node@v1
         with:
