@@ -15,10 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Check cache before cache action
-        run: |
-          echo "Cache before cache action:"
-          ls -a
-          pwd
+        run: '(test -d ~/.npm && echo .npm exists before cache action) || .npm does not exists before cache action'
       - name: Cache node_modules
         uses: actions/cache@v1
         with:
@@ -27,9 +24,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
       - name: Check cache after cache action
-        run: |
-          ls -a
-          pwd
+        run: '(test -d ~/.npm && du -hs .npm) || .npm does not exists after cache action'
       - name: Use Nodejs
         uses: actions/setup-node@v1
         with:
