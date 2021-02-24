@@ -21,4 +21,4 @@ jobs:
             poperor
       - run: |
           echo "issue"
-          echo ${{ steps.issue.outputs.issue }}"
+          echo "${{ steps.issue.outputs.issue }}"
