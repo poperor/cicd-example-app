@@ -11,3 +11,16 @@ jobs:
       - run: |
           echo "Time: ${{ steps.hello.outputs.time }}"
           echo $POP_HELLO
+      - uses: ./.github/actions/issue
+        id: issue
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: tittel
+          body: kropp
+          assignees: |
+            poperor
+      - run: |
+          echo "issue"
+          echo ${{ steps.issue.outputs.issue }}"
+          
+      
