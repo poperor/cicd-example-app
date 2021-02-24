@@ -22,5 +22,3 @@ jobs:
       - run: |
           echo "issue"
           echo ${{ steps.issue.outputs.issue }}"
-          
-      
