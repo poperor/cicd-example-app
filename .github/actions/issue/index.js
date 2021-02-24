@@ -5,7 +5,7 @@ try {
   const token = core.getInput("token");
   const title = core.getInput("title");
   const body = core.getInput("body");
-  const asignees = core.getInput("assignees");
+  const assignees = core.getInput("assignees");
 
   const octokit = new github.GitHub(token);
   const response = octokit.issues.create({

@@ -59,7 +59,7 @@ try {
   const token = core.getInput("token");
   const title = core.getInput("title");
   const body = core.getInput("body");
-  const asignees = core.getInput("assignees");
+  const assignees = core.getInput("assignees");
 
   const octokit = new github.GitHub(token);
   const response = octokit.issues.create({
@@ -67,7 +67,7 @@ try {
     repo: github.context.repo,
     title,
     body,
-    asignees: assignees ? assignees.spli('\n') : undefined
+    asignees: assignees ? assignees.split('\n') : undefined
   });
 
   core.setOutput('issue', JSON.stringify(response.data));
