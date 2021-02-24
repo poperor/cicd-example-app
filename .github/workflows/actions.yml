@@ -10,3 +10,5 @@ jobs:
           who-to-greet: "verden"
       - run: |
           echo "Time: ${{ steps.hello.outputs.time }}"
+          echo $POP_HELLO
+         
